@@ -1,7 +1,7 @@
 '''
 The singleton pattern limits the instantiation of the class to only one instance.
 
-Thus – In the example Settings class implementation below,
+Thus, in the example Settings class implementation below,
 there can only be one Settings class sharing the same member variable information in the whole system.
 
 Examples:

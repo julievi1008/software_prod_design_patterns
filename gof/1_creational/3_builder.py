@@ -1,5 +1,5 @@
 '''
-Builder pattern allows constructions of complex objects step by step.
+Builder pattern allows constructions of a complex objects step by step.
 
 Examples:
     - Document converter. For example: converter.set_format("PDF).set_file("document.pdf").convert("HTML")
@@ -9,12 +9,18 @@ Examples:
 
 from abc import ABC, abstractmethod
 
+###
+# Base class for vehicle
+###
 class Vehicle:
     def __init__(self):
         self.wheels = None
         self.seats = None
         self.engine = None
 
+###
+# Builder for vehicles
+###
 class VehicleBuilder():
     def __init__(self):
         self.vehicle = Vehicle()

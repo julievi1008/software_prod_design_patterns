@@ -1,9 +1,10 @@
 '''
-Prototype is used for cloning / copying existing objects.
+Prototype is used for cloning / copying existing instances.
+Note that design patterns, like prototype, can be used in conjunction with each another.
 
 Examples:
-    - Graphic editors: Create multiple different rectangles with different colors etc...
-    - Game development: Clone characters, trees, buildings...
+    - Graphic editors: Create a duplicate of existing rectangle, circle etc...
+    - Game development: Clone existing characters, trees, buildings...
 '''
 
 import copy
