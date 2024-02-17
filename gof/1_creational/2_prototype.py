@@ -29,6 +29,7 @@ class Car():
 # Usage
 ###
 
+# Method chaining
 tesla_green = Car().set_manufacturer("Tesla").set_color("Green")
 print(tesla_green.color)
 
