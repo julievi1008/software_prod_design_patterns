@@ -1,3 +1,11 @@
+'''
+With observer pattern you can notify multiple subscribers of an event or a 
+change somewhere else in your application.
+
+Examples:
+    - UI events. E.g. clicking a button
+    - Social media notifications
+'''
 from abc import ABC, abstractmethod
 
 class Subscriber(ABC):
