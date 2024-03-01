@@ -2,7 +2,9 @@
 Proxy provides a substitute or placeholder for another object.
 
 Examples:
-    - TODO
+    - Caching
+    - Monitoring or logging operations
+    - Control access (admin can do any operation, normal user only operations related to their user etc...)
 '''
 
 import hashlib

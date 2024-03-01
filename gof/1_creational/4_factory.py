@@ -27,18 +27,18 @@ class Vehicle(ABC):
 # Concrete implementation of a Car
 ###
 class Car(Vehicle):
-    def type(self):
+    def type(self) -> str:
         return "Car"
-    def sound(self):
+    def sound(self) -> str:
         return "Tuut"
 
 ###
 # Concrete implementation of a Truck
 ###
 class Truck(Vehicle):
-    def type(self):
+    def type(self) -> str:
         return "Truck"
-    def sound(self):
+    def sound(self) -> str:
         return "TÖÖT"
 
 ###
@@ -46,7 +46,8 @@ class Truck(Vehicle):
 ###
 class VehicleFactory:
     # Factory usually has a single method that initializes and returns the class
-    def get_vehicle(self, vehicle_type):
+    @staticmethod
+    def get_vehicle(vehicle_type : str) -> Vehicle:
         if vehicle_type == "car":
             return Car()
         elif vehicle_type == "truck":
@@ -57,12 +58,12 @@ class VehicleFactory:
 ###
 # Usage example
 ###
-factory = VehicleFactory()
+#factory = VehicleFactory()
 
-car = factory.get_vehicle("car")
+car = VehicleFactory.get_vehicle("car")
 print(f"Car type is: {car.type()} that makes this sound: {car.sound()}")
 
-truck = factory.get_vehicle("truck")
+truck = VehicleFactory.get_vehicle("truck")
 print(f"Truck type is: {truck.type()} that makes this sound: {truck.sound()}")
 
 ###
@@ -75,5 +76,5 @@ class CarType(Enum):
     CAR = "car"
     TRUCK = "truck"
 
-car = factory.get_vehicle(CarType.CAR.value)
+car = VehicleFactory.get_vehicle(CarType.CAR.value)
 print(f"Car type is: {car.type()} that makes this sound: {car.sound()}")
