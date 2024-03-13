@@ -16,7 +16,7 @@ class Prototype(ABC):
         pass
         
 
-
+# It works without define class Prototype above
 class Car(Prototype):
     def __init__(self) -> None:
         self.manufacturer = None
@@ -45,3 +45,25 @@ print(tesla_green.color)
 tesla_red = tesla_green.clone().set_color("Red")
 print(tesla_red.color)
 print(tesla_green.color)
+
+# by creating abstract class Prototype(ABC)
+    # --> some other classes could also inherit 
+        # --> and it would be kind of flag that hey this can be cloned or copied.
+
+### class Prototype(ABC):
+###     @abstractmethod
+###     def clone(self) -> "Prototype":
+###         pass
+
+### class Car(Prototype):
+###     def clone(self) -> "Car":
+###             return copy.deepcopy(self)
+
+''' similar to'''
+
+### class Car:
+###     def clone(self) -> "Car":
+###             return copy.deepcopy(self)
+
+
+# have a default skin then change color of the skin 

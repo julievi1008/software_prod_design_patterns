@@ -10,7 +10,9 @@ Examples:
     - Caching
 '''
 
-
+# https://batnamv.medium.com/design-pattern-li%E1%BB%87u-b%E1%BA%A1n-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-hi%E1%BB%83u-v%E1%BB%81-singleton-pattern-a88aede760f6
+# https://dev.to/mustafaelghrib/how-to-implement-a-logging-system-with-the-singleton-pattern-using-python-5b32 
+# https://github.com/priyankmishraa/linkedin-posts/blob/main/logging-singleton/main.py 
 class Setting():
     """Setting class without singleton pattern"""
     def __init__(self):
@@ -79,6 +81,9 @@ if __name__ == "__main__":
 
     print("setting1.values['example']: " + setting1.get_setting("example"))
     print("setting2.values['example']: " + setting2.get_setting("example"))
+    print(f'setting1 without singleton: {id(setting1)}')
+    print(f'setting2 without singleton: {id(setting2)}')
+    print(setting1 is setting2)
 
     print()
 
@@ -91,4 +96,7 @@ if __name__ == "__main__":
 
     print("singleton1.values['example']: " + singleton1.get_setting("example"))
     print("singleton2.values['example']: " + singleton2.get_setting("example"))
+    print(f'setting1 with singleton: {id(singleton1)}')
+    print(f'setting2 with singleton: {id(singleton2)}')
+    print(singleton1 is singleton2)
 
