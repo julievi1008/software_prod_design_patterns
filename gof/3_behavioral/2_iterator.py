@@ -106,91 +106,31 @@ class WordCollection(Iterable):
         return WordCollectionIterator(self, True)
 
 
-
-def word_collection_example():
-    # Initializing the WordCollection.
-    collection = WordCollection(["first", "second", "third", "fourth"])  
-
-    # Now we can loop (iterate) through the WordCollection.
-    for item in collection:
-        print(item)
-        
-    print()
-
-    # Reverse order.
-    for item in collection.get_reverse_iterator():
-        print(item)
-
-    print()
-
-    # This is kind of what happens when you loop through the collection in a for loop.
-    collection_iterator = collection.__iter__()
-    while True:
-        try:
-            print(collection_iterator.__next__())
-        except StopIteration:
-            print("No more words to print\n")  # Demonstrates when the StopIteration is raised.
-            break
-
-
-
-class FileReaderIterator(Iterator):
-    """FileReaderIterator for iterating through text files.
-
-    Attributes:
-        _position: Marks the current position of the iterator.
-    """
-    _position: int
-
-    def __init__(self, file_path: str) -> None:
-        """Initialize the iterator.
-        
-        Args:
-            file_path: Path to the file.
-        """
-        self._file = open(file_path, 'r')
-        self._position = 0
-
-    def __next__(self) -> str:
-        """Logic for getting the next item."""
-        line = self._file.readline()  # Reads the next line from the file.
-
-        # `readline()` returns an empty line when the end is reached,
-        # which is why we do this part a bit different.
-        if not line:
-            self._file.close()
-            raise StopIteration()
-        return line.strip()  # `.strip()` for stripping the new line characters
-
-    def __iter__(self) -> "FileReaderIterator":
-        return self
-
-
-class FileReader(Iterable):
-    """Object that holds only the path to a file.
-    
-    Attributes:
-        _file_path: String representation of the file path.
-    """
-    def __init__(self, file_path: str) -> None:
-        """Initialize FileReader."""
-        self._file_path = file_path
-
-    def __iter__(self) -> FileReaderIterator:
-        """Create the iterator."""
-        return FileReaderIterator(self._file_path)
-
-
-
+###
 # Usage
-def filereader_example():
-    file_reader = FileReader("./example.txt")
+###
 
-    for line in file_reader:
-        print(line)
+# Initializing the WordCollection.
+collection = WordCollection(["first", "second", "third", "fourth"])  
 
+# Now we can loop (iterate) through the WordCollection.
+for item in collection:
+    print(item)
+    
+print()
 
-if __name__ == "__main__":
-    word_collection_example()
-    filereader_example()
+# Reverse order.
+for item in collection.get_reverse_iterator():
+    print(item)
+
+print()
+
+# This is kind of what happens when you loop through the collection in a for loop.
+collection_iterator = collection.__iter__()
+while True:
+    try:
+        print(collection_iterator.__next__())
+    except StopIteration:
+        print("No more words to print\n")  # Demonstrates when the StopIteration is raised.
+        break
 
