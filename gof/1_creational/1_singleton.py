@@ -40,8 +40,9 @@ class SingletonSetting():
                     program.
     """
     _instance = None
-
-    def __new__(cls):
+    # __new__ is a special method that is called to create a new instance of a class before it is initialized. 
+    #It is a static method that takes the class as its first argument and returns a new instance of that class.
+    def __new__(cls): # cls: class
         """This is the magic of this pattern. 
         
         Check if _instance exists, if it doesn't then create it. Then return the 
@@ -73,7 +74,7 @@ class SingletonSetting():
 ###
 if __name__ == "__main__":
     # With Setting class, which is NOT a singleton.
-    setting1 = Setting()
+    setting1 = Setting() # call __new__ first then __init__
     setting1.set_setting("example", "value")
 
     setting2 = Setting()

@@ -14,19 +14,20 @@ from abc import ABC, abstractmethod
 ###
 # Superclass for all vehicles
 ###
-class Vehicle(ABC):
-    @abstractmethod
+class Vehicle(ABC): # Superclass
+    @abstractmethod 
     def type(self):
         pass
     
     @abstractmethod
     def sound(self):
         pass
+# car = Vehicle() --> can't not do this because it's an abstract class
 
 ###
 # Concrete implementation of a Car
 ###
-class Car(Vehicle):
+class Car(Vehicle): #subclass
     def type(self) -> str:
         return "Car"
     def sound(self) -> str:
@@ -35,7 +36,7 @@ class Car(Vehicle):
 ###
 # Concrete implementation of a Truck
 ###
-class Truck(Vehicle):
+class Truck(Vehicle): #subclass
     def type(self) -> str:
         return "Truck"
     def sound(self) -> str:
@@ -46,7 +47,8 @@ class Truck(Vehicle):
 ###
 class VehicleFactory:
     # Factory usually has a single method that initializes and returns the class
-    @staticmethod
+    @staticmethod                                                                           # no need to create instance? more like library? Don't put bracket
+    # VehicleFactory(): build the whole class --> call __init__, __new__--> takes more memory
     def get_vehicle(vehicle_type : str) -> Vehicle:
         if vehicle_type == "car":
             return Car()
@@ -58,9 +60,12 @@ class VehicleFactory:
 ###
 # Usage example
 ###
-#factory = VehicleFactory()
+#factory = VehicleFactory() # Creating an instance of the AnimalFactory class
+#print(factory)
 
-car = VehicleFactory.get_vehicle("car")
+car = VehicleFactory.get_vehicle("car") #without creating an instance (factory = VehicleFactory())
+# it's a common practice in Python to call static methods directly from the class
+#    without explicitly creating an instance of the class.
 print(f"Car type is: {car.type()} that makes this sound: {car.sound()}")
 
 truck = VehicleFactory.get_vehicle("truck")
@@ -78,3 +83,5 @@ class CarType(Enum):
 
 car = VehicleFactory.get_vehicle(CarType.CAR.value)
 print(f"Car type is: {car.type()} that makes this sound: {car.sound()}")
+bike = VehicleFactory.get_vehicle('bike')
+#different ways to achieve same goal builder customize and factory

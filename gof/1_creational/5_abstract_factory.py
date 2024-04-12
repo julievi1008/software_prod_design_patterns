@@ -26,6 +26,7 @@ class Truck(Vehicle):
     def type(self):
         return "Truck"
 
+
 class Accessory(ABC):
     @abstractmethod
     def description(self):
@@ -38,6 +39,7 @@ class CarAccessory(Accessory):
 class TruckAccessory(Accessory):
     def description(self):
         return "Truck Accessory"
+
 
 ###
 # Abstract Factory Interface

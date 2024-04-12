@@ -2,7 +2,7 @@
 Proxy provides a substitute or placeholder for another object.
 
 Examples:
-    - Caching
+    - Caching --- database (spl) proxy for normal users/ admin users
     - Monitoring or logging operations
     - Control access (admin can do any operation, normal user only operations related to their user etc...)
 '''
@@ -11,7 +11,7 @@ import hashlib
 from pathlib import Path
 from abc import ABC, abstractmethod
 
-def calculate_md5(file_path):
+def calculate_md5(file_path): # md5 totally differ from markdown =)))))
     hash_md5 = hashlib.md5()
     with open(file_path, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -60,12 +60,16 @@ file_reader_without_cache : FileReaderInterface = RealFileReader()
 
 print("\n#### WITHOUT CACHE:")
 # Without cache
-for i in range(3):
-    content = file_reader_without_cache.read_file(file_path)
-    print(content)
+###for i in range(3):
+###    content = file_reader_without_cache.read_file(file_path)
+###    print(content)
+print(file_reader_without_cache.read_file(file_path))
 
 print("\n#### WITH CACHE:")
 # With cache
-for i in range(3):
-    content = file_reader_with_cache.read_file(file_path)
-    print(content)
+###for i in range(3):
+###    content = file_reader_with_cache.read_file(file_path)
+###    print(content)
+
+print(file_reader_with_cache.read_file(file_path))
+print(file_reader_with_cache.read_file(file_path))

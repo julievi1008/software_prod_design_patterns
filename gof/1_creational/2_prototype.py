@@ -12,7 +12,7 @@ from abc import ABC, abstractmethod
 
 class Prototype(ABC):
     @abstractmethod
-    def clone(self) -> "Prototype":
+    def clone(self) -> "Prototype": ### the class that inherits from Prototype overwrite the function clone
         pass
         
 
